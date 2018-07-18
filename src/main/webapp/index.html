@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Convo App</title>
+    
+</head>
+<body ng-style = "myStyle" >
+    
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">SUPER MEGA CONVERSATION APP</a>
+            </div>
+        </div>
+    </nav>
+    
+
+    
+    <div class="btn-group">
+    <button type="button" class="btn btn-default" ng-click="myStyle={background:'black'}">Im Hungover</button>
+    <button type="button" class="btn btn-default" ng-click="myStyle={background:'white'}">Im Alright Actually</button>
+    </div>
+    
+    Super Deluxe Tables:<input type="checkbox" ng-model="isHiddenSuper"/>
+    
+
+    Hide Movies Table: <input type="checkbox" ng-model="isHidden"/>
+    
+     <div>
+      <input ng-hide="isHidden" type="text" placeholder="Search Movies" ng-model="userSearch">
+    </div>
+
+    <div ng-hide="isHidden" ng-init ="movies=[{'Id': '1', 'Title': 'A Scanner Darkly','Genre': 'Crime', 'Rating': '18'},{'Id': '2', 'Title': 'Full Metal Jacket','Genre': 'Action', 'Rating': '18'}]">
+    	<h3><span>MOVIES THAT R GUD</span></h3>
+    	<table class="table table-striped">
+    		<tr>
+    			<th>Id</th>
+    			<th>Title</th>
+    			<th>Genre</th>
+    			<th>Rating</th>
+    		</tr>
+    		<tr ng-repeat="movie in movies | filter:userSearch">
+    			<td>{{movie.Id}}</td>
+    			<td>{{movie.Title | uppercase}}</td>
+    			<td>{{movie.Genre | uppercase}}</td>
+    			<td>{{movie.Rating}}</td>
+    		</tr>
+    	</table>
+    </div>
+    
+    
+     <div>
+      <input ng-show="isHiddenSuper" type="text" placeholder="Search Food" ng-model="userSearch2">
+    </div>
+
+    <div ng-show="isHiddenSuper" ng-init ="foods=[{'Name': 'SpagBol', 'Origin': 'Italy', 'Type': 'Pasta'}, {'Name': 'Chorizo', 'Origin': 'Spain', 'Type': 'Sausage'}, {'Name': 'Cauliflower and Cheese', 'Origin': 'The Ground and The Cow', 'Type': 'Veggie and Dairy'}]">
+    	<h3><span>FOODS THAT R GUD</span></h3>
+    	<table class="table table-striped">
+    		<tr>
+    			<th>Name</th>
+    			<th>Origin</th>
+    			<th>Type</th>
+    		</tr>
+    		<tr ng-repeat="food in foods | filter:userSearch2">
+    			<td>{{food.Name | uppercase}}</td>
+    			<td>{{food.Origin | uppercase}}</td>
+    			<td>{{food.Type | uppercase}}</td>
+    			
+    		</tr>
+    	</table>
+    </div>
+    
+         <div>
+      <input ng-show="isHiddenSuper" type="text" placeholder="Search Things" ng-model="userSearchThings">
+    </div>
+
+    <div ng-show="isHiddenSuper" ng-init ="things=[{'Thing': 'Equality', 'Origin': 'The Mind', 'Type': 'Basic Human Rights'}, {'Thing': 'Life', 'Origin': 'Universe', 'Type': 'Biology'}, {'Thing': 'Equal Pay', 'Origin': 'Not Quite Established', 'Type': 'Inner Peace and Financial Security'}]">
+    	<h3><span>THINGS THAT R GUD</span></h3>
+    	<table class="table table-striped">
+    		<tr>
+    			<th>Thing</th>
+    			<th>Origin</th>
+    			<th>Type</th>
+    		</tr>
+    		<tr ng-repeat="thing in things | filter:userSearchThings">
+    			<td>{{thing.Thing | uppercase}}</td>
+    			<td>{{thing.Origin | uppercase}}</td>
+    			<td>{{thing.Type | uppercase}}</td>
+    			
+    		</tr>
+    	</table>
+    </div>
+    
+   
+	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/ui-router.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>
